@@ -63,7 +63,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <version>2.3.7.RELEASE</version>
                 <configuration>
-                    <mainClass>com.example.springbootwiki.SpringbootwikiApplication</mainClass>
+                    <mainClass>com.example.springbootwiki.config.SpringbootwikiApplication</mainClass>
                 </configuration>
                 <executions>
                     <execution>
