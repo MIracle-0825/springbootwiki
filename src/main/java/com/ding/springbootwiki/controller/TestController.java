@@ -1,4 +1,4 @@
-package com.example.springbootwiki.controller;
+package com.ding.springbootwiki.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
