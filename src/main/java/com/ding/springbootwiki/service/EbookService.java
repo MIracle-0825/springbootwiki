@@ -1,6 +1,7 @@
 package com.ding.springbootwiki.service;
 
 import com.ding.springbootwiki.domain.Ebook;
+import com.ding.springbootwiki.domain.EbookExample;
 import com.ding.springbootwiki.mapper.EbookMapper;
 import org.junit.Test;
 import org.springframework.stereotype.Service;
@@ -12,7 +13,10 @@ import java.util.List;
 public class EbookService {
     @Resource
     private EbookMapper ebookMapper;
-    public List<Ebook> list(){
-        return ebookMapper.selectByExample(null);
+    public List<Ebook> list(String name){
+        EbookExample ebookExample = new EbookExample();
+        EbookExample.Criteria criteria = ebookExample.createCriteria();
+        criteria.andNameLike("%"+name+"%");
+        return ebookMapper.selectByExample(ebookExample);
     }
 }

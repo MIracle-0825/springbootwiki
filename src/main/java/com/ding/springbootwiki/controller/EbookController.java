@@ -5,6 +5,7 @@ import com.ding.springbootwiki.mapper.EbookMapper;
 import com.ding.springbootwiki.resp.CommonResp;
 import com.ding.springbootwiki.service.EbookService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -16,10 +17,10 @@ import java.util.List;
 public class EbookController {
     @Resource
     private EbookService ebookService;
-    @GetMapping("/list")
-    public CommonResp list(){
+    @GetMapping("/list/{name}")
+    public CommonResp list(@PathVariable("name") String name){
         CommonResp<List<Ebook>> resp = new CommonResp<>();
-        List<Ebook> list = ebookService.list();
+        List<Ebook> list = ebookService.list(name);
         resp.setContent(list);
         return resp;
     }
